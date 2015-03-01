@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Explanations for the Magic Eye</title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+
+        </head>
+
+        <body style="margin:0px auto; padding-top:20px;">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+
+        <div>
+            <h1>Explanations for the Magic Eye</h1>
+        </div>
+
+        <div>
+            <h3>Visualization of Energy Consumption at Home</h3>
+            <p>A Project by Vera Fuest for Fortum</p>
+            <p>Aknowledgments: I would like to thank Thomáš Gatial for his great support.</p>
+        </div>
+        </br>
+        <hr color="grey"/>
+
+        <div>
+            <h3>Idea for the Design</h3>
+            <p>The design is inspired by Fernanda Viegas' and Martin Wattenberg's visualization of <a href="http://hint.fm/projects/flickr/">One Year in Boston</a>.</p>
+            </br>
+            <p>The magic eye represents an ambient and casual information visualization that aims to be appealing and enjoyable by hanging on the wall in a home, becoming a natural part of the surroundings.
+            <h3>Data behind the Design</h3>
+            The data represented corresponds to 24 hours of energy consumption. It is updated on click with the data of the next seven days. Therefore, the user can control wether to update the design of the eye or wether to freeze the current artwork. Electricity is shown in a green to yellow colourscale, cold water in a blue to purple and warm water in an orange to red colourscale. The colours are mapped to the value of the figure that constitutes the number for the energy consumption of this specific hour. The raw data represented a number with several decimals, for this visualization each number was cut after the fourth decimal. A decimal of the value 9 is coloured dark green for electricity, dark blue for cold water and dark red for warm water.
+            More details about the data mappings and visual structures are illustrated in the visualization pipeline displayed below. </p>
+            <img src= "images/Project3-Pipeline.jpg"></img>
+        </div>
+
+        <div>
+            <h3>Reflections on the Design</h3>
+            <p>
+
+            </p>
+        </div>
+
+        <hr color="grey"/>
+
+        <div>
+            <p>
+
+            </p>
+        </div>
+        <hr color="grey"/>
+
+
+        <div><h3>Future Work</h3></div>
+        <div>
+            <p>The data display in parallel coordinates allows to filter the data according to different variables eg. '2 children' and 'divorced' and gives an approximate number of respondents. The user can move filters around, enlarge them and thereby focus on different categorical data. The data view transformations provided by WVS were limited, no zooming or filtering was possible and the barcharts were not big enough to identify the differences.</p>
+        </div>
+
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
+
+
+
+<!--
+Terminal code
+n144-p156:KTH Vera$ cd ~/Documents/KTH/Information\ Visualization/Assignment\ 2/Project/
+n144-p156:Project Vera$ ls
+assignment2_Vera Fuest.html d3
+n144-p156:Project Vera$ python -m SimpleHTTPServer 8888 & -->

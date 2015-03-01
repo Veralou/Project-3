@@ -2,84 +2,368 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Parallel Fun</title>
-        <link rel="stylesheet" type="text/css" href="css/d3.parcoords.css">
-        <script type="text/javascript" src="d3/d3.v3.min.js"></script>
-        <script type="text/javascript" src="d3/d3.parcoords.js"></script>
-        <script type="text/javascript" src="d3/sylvester.js"></script>
-        <script type="text/javascript" src="d3/underscore.js"></script>
-        <script type="text/javascript" src="d3/slickgrid/jquery-1.7.min.js"></script>
-        <script type="text/javascript" src="d3/underscore.js"></script>
-        <script type="text/javascript" src="d3/underscore.math.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <link rel="stylesheet" href="css/main.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Magic Eye</title>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+     </head>
 
 
-        </head>
 
-        <body style="margin:0px auto; padding-top:20px;">
+    <body style="margin:0px auto; vertical-align:center; padding-top:20px;">
         <div class="container">
         <div class="row">
         <div class="col-md-12">
 
-               <div><h1>Vera's First Programming Project in D3</h1>
-               </div>
-        <div><h2>Is there a correlation between the marital status and the number of children that people in Sweden have?</h2></div>
 
-        <div><p>Great thanks go to Victor Armash who helped me a lot on the programming side of this data visualisation project.</p></div>
+        <script type="text/javascript">
 
-        <div>Data source: <a href="www.worldvaluessurvey.org">World Value Survey</a></div>
-        <div></div>
-
-        <hr color="grey"/>
-        </br>
-        <div><h3>Analytical trail with WVS visualisation tools</h3>
-        <p>Step 1: Choose the time period.</p>
-        <p>Step 2: Select the countries to focus on. </p>
-        <p>Step 3: Select the survey variables 'how many children do you have'.</p>
-        </div>
-        <hr color="grey"/>
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //
+        //          DATA LOADING PART
+        //
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-        <div>
-            <p>The image shows the corresponding data table that contains data transformations such as summing, mean, standard deviation and percentages. The bar chart contains visual mappings such as color to number of children and height to the number of respondents in percentages. The data types are categorical and numerical.
-            </p>
-            <img src= "image/number of children selected.png"></img>
-        </div>
-        <hr color="grey"/>
 
-        <div>
-            <p>Step 4: Choose the crossing variable 'marital status'.</p>
-            <p>Coosing the crossing variable shows a data table for each possible combination of marital status and children. The data can be transformed into percentages when selected.</p>
-            <img src= "image/table with results.png"></img>
-            <hr color="grey"/>
-             <p>In the bar chart, the color is mapped to the marital status, the height of the bar to the number of respondents and the number of children to the horizontal positioning of the bar.</p>
-            <img src= "image/bar chart with results.png"></img>
-        </div>
-        <hr color="grey"/>
 
-        <div><h3>Improvement of the WVS visualization tools</h3></div>
-        <div>
-            <h5>Adding view transformations and modifying the visual structures</h5>
-            <p>The data display in parallel coordinates allows to filter the data according to different variables eg. '2 children' and 'divorced' and gives an approximate number of respondents. The user can move filters around, enlarge them and thereby focus on different categorical data. The data view transformations provided by WVS were limited, no zooming or filtering was possible and the barcharts were not big enough to identify the differences. All data is shown in one graph which makes it hard to read and draw conclusions from.</p>
-        </div>
 
-        <hr color="grey"/>
+        var listElectricity = [0.0999999999999091,
+                                    0.0999999999999091,
+                                    0.0999999999999091,
+                                    0.3800000000001090,
+                                    0.2999999999997270,
+                                    0.0900000000001455,
+                                    0.0900000000001455,
+                                    0.1599999999998540,
+                                    0.5100000000002180,
+                                    1.1799999999998400,
+                                    1.3699999999998900,
+                                    0.6400000000003270,
+                                    0.9199999999996180,
+                                    1.0300000000002000,
+                                    1.2699999999999800,
+                                    0.5799999999999270,
+                                    0.6100000000001270,
+                                    1.1300000000001100,
+                                    0.5499999999997270,
+                                    0.4500000000002730,
+                                    1.0699999999997100,
+                                    0.6300000000001090,
+                                    1.1399999999998700,
+                                    0.5599999999999450]
 
-        <div id="graph" class="parcoords"></div>
-        <div><h3>Limitations of the visualization and future work</h3></div>
-        <div><p>The visualisation with parallel coordinates allows to filter for different conditions and see how they connect to each other. However, this tool is not helpful for summing up the total amount of people with one child for example as the scale for number of people is detailed enough. Ideally, both a marital status and a number of children should be selected in order to compare and analyse different lines.</p>
 
-        <p>This visualization could be improved by adding hovereffects so that when the mouse is moved over a line, its data is shown in a little box. Also it could have been nice to map one line to one respondent of the survey so that the graph would contain over 1000 different lines. Furthermore, the sample size (around 1000 people) might not be big enough so that insightful conclusions can be drawn on the correlation of marital status and children. Further statistical calculations would be necessary to validate it. More variables should be added as axes of the parallel coordinates to analyse their influence on the two variables like for example income or education level. Showing only two variables introduces a worldview gap by not showing enough informaton as to draw significant conclusions from it. However, it was not possible for me to include this amount of detail into the graph. It would have been necessary to filter the raw data for different conditions eg married Swedes with one children of lowest income and education level and so forth until all possible combinations of the variables are fullfilled. This could be an interesting research approach for future work.</p></div>
+        var listColdWater = [0.003000000000000110,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000000000000000000,
+                            0.000999999999990564,
+                            0.058000000000006900,
+                            0.004999999999995450,
+                            0.003000000000000110,
+                            0.088999999999998600,
+                            0.015000000000000600,
+                            0.031000000000005900,
+                            0.081999999999993600,
+                            0.032000000000010700,
+                            0.009999999999990910,
+                            0.016000000000005300,
+                            0.010999999999995700,
+                            0.006000000000000230,
+                            0.034000000000006000,
+                            0.018999999999991200,
+                            0.029000000000010600]
 
-        <hr color="grey"/>
-        <img src= "image/VisPipeline.png"></img>
 
-        <script type="text/javascript" src="js/parallelfun.js"></script>
+        var listWarmWater = [0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.05599999999999740,
+                            0.00000000000000000,
+                            0.00000000000000000,
+                            0.04200000000000160,
+                            0.00400000000000489,
+                            0.00900000000000034,
+                            0.05999999999998810,
+                            0.01600000000000530,
+                            0.00000000000000000,
+                            0.00799999999999557,
+                            0.00200000000000955,
+                            0.00099999999999056,
+                            0.03700000000000610,
+                            0.00100000000000477,
+                            0.00600000000000023]
+
+
+        /*function updateData(dataToUpdate){
+
+            var returnData= []
+
+            dataToUpdate.forEach(function(dstring){
+
+                var
+
+            })
+
+        }
+
+        var listElectricity1*/
+
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //
+        //          DATA TRANSFORMATION PART
+        //
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+
+
+
+        function transformData(dataToTransform){
+
+                var returnData = []
+
+                dataToTransform.forEach(function(d) {
+
+                      var dstring = d.toString()
+                      dstring = dstring.replace(".", "")
+                      dstring = dstring.substr(0, 4)
+
+                      //listElectricityConvert.push(dstring)
+
+                      var newList = []
+                      newList.push(+ dstring.charAt(0))
+                      newList.push(+ dstring.charAt(1))
+                      newList.push(+ dstring.charAt(2))
+                      newList.push(+ dstring.charAt(3))
+
+                    returnData.push(newList)
+
+
+                  })
+
+                return returnData
+            }
+
+        var transformElectricityData = transformData(listElectricity)
+        var transformColdWaterData = transformData(listColdWater)
+        var transformWarmWaterData = transformData(listWarmWater)
+
+
+
+
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //
+        //          DATA TRANSFORMATION PART II BLENDING COLORS
+        //
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+        function interpolateData(dataToInterpolate, howManyTimes){
+
+            function interpolateHorizontally(arrayToInterpolate){
+
+                var arrayToReturn = []
+
+                arrayToInterpolate.forEach(function(horizontalList){
+
+                    var horizontalListInterpolated = []
+
+                    horizontalList.forEach(function(digit, index, horizontalList){
+
+                        horizontalListInterpolated.push(digit)
+
+                        if(index != horizontalList.length-1){
+                            var nextDigit = horizontalList[index+1]
+                            var newDigit = (digit + nextDigit) / 2
+
+                            horizontalListInterpolated.push(newDigit)
+                        }
+                    })
+
+                    arrayToReturn.push(horizontalListInterpolated)
+
+                })
+                return arrayToReturn;
+            }
+
+
+
+            function interpolateVertically(arrayToInterpolate){
+
+                var returnArray = []
+
+                arrayToInterpolate.forEach( function(horizontalList1,index, vertList){
+
+                    returnArray.push(horizontalList1)
+
+                    var horizontalList2
+
+                    if(index == vertList.length-1){
+                        horizontalList2 = vertList[0]
+                    } else {
+                        horizontalList2 = vertList[index+1]
+                    }
+
+                    var horizontalListMiddle = []
+
+                    console.log("horizontal lists");
+                    console.log(horizontalList1);
+                    console.log(horizontalList2);
+
+                    for (var i = 0; i < horizontalList1.length; i++) {
+
+                        var digit1 = horizontalList1[i];
+                        var digit2 = horizontalList2[i];
+
+                        horizontalListMiddle.push((digit1+digit2)/2)
+
+                    };
+
+                    returnArray.push(horizontalListMiddle)
+                })
+                return returnArray
+            }
+            var returnData = dataToInterpolate
+
+            var i = 0;
+
+
+
+            while (i < howManyTimes) {
+                returnData = interpolateHorizontally(returnData)
+                returnData = interpolateVertically(returnData)
+                i++;
+            }
+
+            return returnData
+        }
+
+
+        var interpolatedElectricityData = interpolateData(transformElectricityData, 4)
+        var interpolatedColdWaterData = interpolateData(transformColdWaterData, 4)
+        var interpolatedWarmWaterData = interpolateData(transformWarmWaterData, 4)
+
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //
+        //          DRAWING PART
+        //
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+        var svgContainer = d3.select("body")
+                            .append("svg")
+                            .attr("width", 1000)
+                            .attr("height", 800)
+
+
+        var pathsContainer = svgContainer.append("g")
+
+
+
+
+        var colorScale1 = d3.scale.linear()
+                                                .domain([0, 1, 4, 9])
+                                                .range(["#dbdada","#fff800", "#c3ff00", "#70b70f"]);
+
+
+        var colorScale2 = d3.scale.linear()
+                                                .domain([0, 1, 4, 9])
+                                                .range(["#e5e2e2","#90b2fb", "#0355e1", "#103585"]);
+
+        var colorScale3 = d3.scale.linear()
+                                                .domain([0, 1, 4, 9])
+                                                .range(["#eeeeee","#ff9a00", "#fb0101", "#a5150d"]);
+
+        drawDataset(interpolatedElectricityData, 50, 70, pathsContainer,colorScale1)
+        drawDataset(interpolatedColdWaterData, 120, 70, pathsContainer,colorScale2)
+        drawDataset(interpolatedWarmWaterData, 190, 70, pathsContainer,colorScale3)
+
+
+
+
+
+
+        function drawDataset(data,radiusStart,totalSize,container,colorScale){
+
+            data.forEach(function(d,y,yArr) {
+
+                d.forEach(function(digit,x,xArr) {
+
+                    /*svgContainer.append("rect")
+                            .attr("x", 22*j)
+                            .attr("y", 22*i)
+                            .attr("width",20)
+                            .attr("height", 20)*/
+
+                        var radiusSizeSegment = totalSize/xArr.length
+
+                        var radiusStep = radiusSizeSegment
+
+                        var angleStep = 2*Math.PI/yArr.length
+                        var angleSize = angleStep
+
+
+                        var arc = d3.svg.arc()
+                                .innerRadius(radiusStart          + x*radiusStep)
+                                .outerRadius(radiusStart+radiusSizeSegment  + x*radiusStep)
+                                .startAngle(y*angleStep)
+                                .endAngle(angleSize + y*angleStep)
+
+
+                        var color
+
+
+                        color = colorScale(digit)
+
+
+
+
+                        container.append("path")
+                            .attr("d", arc)
+                            .style("fill",color)
+                            .style("stroke",color)
+                            .style("stroke-width",3)
+
+                })
+
+            })
+        }
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //
+        //          VIEW TRANSFORMATION PART
+        //
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+        pathsContainer.attr("transform", "translate("+
+                                                svgContainer.attr("width")/2
+                                                        +","+
+                                                svgContainer.attr("height")/2
+                                                        +")")
+
+        </script>
+
         </div></div></div>
-    </body>
+        <a class="btn" href="Explanations.html">Learn more about this visualization</a>
+                </div>
+      </body>
 </html>
 
 
@@ -87,6 +371,4 @@
 <!--
 Terminal code
 n144-p156:KTH Vera$ cd ~/Documents/KTH/Information\ Visualization/Assignment\ 2/Project/
-n144-p156:Project Vera$ ls
-assignment2_Vera Fuest.html d3
 n144-p156:Project Vera$ python -m SimpleHTTPServer 8888 & -->
