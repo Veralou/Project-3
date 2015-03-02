@@ -2,6 +2,10 @@
 	min-height: 665px;
 }
 
+svg, path, g {cursor: pointer;
+
+}
+
 #introHeader {
 	background: rgba(255, 255, 255, .8);
 }
