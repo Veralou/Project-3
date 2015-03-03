@@ -17,37 +17,40 @@
         <div class="col-md-12">
 
         <div>
-            <h1>Explanations for the Magic Eye</h1>
+            <h1>Ambient Visualization of Energy Consumption at a Home</h1>
         </div>
 
         <div>
-            <h3>Visualization of Energy Consumption at Home</h3>
-            <p>A Project by Vera Fuest for Fortum</p>
-            <p>Acknowledgments: I would like to thank Thomáš Gatial for his great support.</p>
+            <h3>A Project by Vera Fuest</h3>
+            <p>Acknowledgments: I would like to thank Thomáš Gatial for his great support in coding this visualization. He is an extremely skilled programmer.</p>
         </div>
-        </br>
         <hr color="grey"/>
 
         <div>
             <h3>Idea for the Design</h3>
             <p>The design is inspired by Fernanda Viegas' and Martin Wattenberg's visualization of <a href="http://hint.fm/projects/flickr/">One Year in Boston</a>.</p>
             </br>
-            <p>The magic eye represents an ambient and casual information visualization that aims to be appealing and enjoyable by hanging on the wall in a home, becoming a natural part of the surroundings.
-            <h3>Data behind the Design</h3>
-            The data represented in the magic eye corresponds to 24 hours of energy consumption. It is updated on click with the data of the next seven days displayed in a loop. Therefore, the user can control wether to update the design of the eye or wether to freeze the current artwork. Electricity is shown in a green to yellow colourscale, cold water in a blue to purple and warm water in an orange to red colourscale. The colours are mapped to the value of the figure that constitutes the number for the energy consumption of this specific hour. The raw data represented a number with several decimals, for this visualization each number was cut after the fourth decimal. A decimal of the value 9 is coloured dark green for electricity, dark blue for cold water and dark red for warm water. More details about the data mappings and visual structures are illustrated in the visualization pipeline displayed below. </p>
-            <img src= "images/Project3-Pipeline.jpg"></img>
+
+            <p>
+            The magic eye represents an ambient and casual information visualization that aims to be appealing and enjoyable by hanging on the wall in a home, becoming a natural part of the surroundings. Animations and labels are avoided for the artwork to be in the focus of attention in a silent and stable way and in order to give freedom of interpretation. Explanations are available on demand but the user might want to make up his mind independently.
+            <img src= "images/weekly-pattern.jpg"></img>
+            </br>
+            The data represented in the magic eye corresponds to 24 hours of energy consumption. It is updated on click with the data of the next seven days displayed in a loop. Therefore, the user can control wether to update the design of the eye or wether to freeze the current artwork.
+            <img src= "images/temporal-pattern.jpg"></img>
+            </p>
+
+            <p>
+            <h3>Visual structures</h3>
+            Electricity is shown in a green to yellow colourscale, cold water in a blue to purple and warm water in an orange to red colourscale. The colours are mapped to the value of the figure that constitutes the number for the energy consumption of this specific hour. The raw data represented a number with around sixteen decimals.
+            <img src= "images/data-transformations.jpg"></img>
+            </p>
+
         </div>
 
         <div>
             <h3>Reflections on the Design</h3>
             <p>
-
-            </p>
-        </div>
-
-        <div>
-            <p>
-
+            I would like to encourage reflective insights and challenge typical perspectives on data by mapping them in an unexpected way. Each figure is cut down into its components instead of looking at the number and its overall value. This alienation effect of the actual values of energy consumption is meant to distract from a feeling of guiltiness and encourage people to change their behaviour because they want to see how it affects the artwork, not because they feel responsible to do so.
             </p>
         </div>
 
@@ -55,8 +58,11 @@
         <div><h3>Future Work</h3></div>
         <div>
             <p>
-                evaluation
-                know more about user interpretation
+            The data could be transformed in a more strange and unexpected way. An idea could be to map the consumption values to the alphabet and then attach a color to the letter. This will create a data mapping that is more distant from the actual energy consumption and might raise more interest from users to find out what lies behind.
+            </p>
+            <p>
+            More details about the data mappings and visual structures are illustrated in the visualization pipeline displayed below.
+            <img src= "images/Project3-Pipeline.jpg"></img>
             </p>
         </div>
 
@@ -70,7 +76,5 @@
 
 <!--
 Terminal code
-n144-p156:KTH Vera$ cd ~/Documents/KTH/Information\ Visualization/Assignment\ 2/Project/
-n144-p156:Project Vera$ ls
-assignment2_Vera Fuest.html d3
+n144-p156:KTH Vera$ cd ~/Documents/KTH/GitHub/Project-3/
 n144-p156:Project Vera$ python -m SimpleHTTPServer 8888 & -->
